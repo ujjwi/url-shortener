@@ -45,4 +45,22 @@ public class HealthController {
         // ResponseEntity.ok() = HTTP 200 + body
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping("/info")
+    public ResponseEntity<Map<String, Object>> appinfo() {
+        // ResponseEntity gives you full control over the HTTP response:
+        //   - status code (200, 404, etc.)
+        //   - headers
+        //   - body
+        // It's like Express's res.status(200).json({...})
+
+        Map<String, Object> response = Map.of(
+                "app", "url-shortener", 
+                "version", "0.0.1",
+                "java", "25"
+        );
+
+        // ResponseEntity.ok() = HTTP 200 + body
+        return ResponseEntity.ok(response);
+    }
 }
